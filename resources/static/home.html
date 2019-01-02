@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>Home Page</title>
     <div style="height:10vh;"> <h1> Header </h1> </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        var origin   = window.location.origin;
+        <!--console.log(origin);-->
+    </script>
     <style>
         div {
             border: 1px solid black;
@@ -18,7 +23,33 @@
 <!--<h3> you'll sepent most of the time here...</h3>-->
 
 <div id="address-line"> address line </div>
-<div id="content" style="height:70vh;"> content </div>
+<div id="content" style="height:70vh; overflow-y: scroll;"> content <br>
+<!--<p>the line 1</p>-->
+<!--<p>the line 2</p>-->
+<!--<p>the line 3</p>-->
+<!--<p>the line 4</p>-->
+<!--<p>the line 5</p>-->
+    <!--<button onclick="myFun()" >Push me</button>-->
+
+    <script>
+        $.getJSON( origin + "/rest", function(TheJson){
+        <!--$.getJSON("http://localhost:8080/rest", function(TheJson){-->
+        <!--$.getJSON("http:/rest", function(TheJson){-->
+            $.each(TheJson,function(index,value){
+                $('#content').append('<p>' + value + '</p>');
+            });
+        });
+    </script>
+
+</div>
+
+<!--<script>-->
+    <!--console.log(origin);-->
+    <!--function myFun(){-->
+        <!--document.getElementById("content").innerHTML += '<p>New element!</p>';-->
+        <!--console.log("something should be printed by now!");-->
+    <!--}-->
+<!--</script>-->
 
 </body>
 </html>

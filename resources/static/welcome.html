@@ -124,6 +124,15 @@ span.psw {
   }
 }
 
+<!--.flex-container{-->
+  <!--display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */-->
+  <!--display: -ms-flexbox;  /* TWEENER - IE 10 */-->
+  <!--display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */-->
+  <!--display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */-->
+
+  <!--justify-content: center;-->
+  <!--align-items: center;-->
+<!--}-->
 
 
     </style>
@@ -131,8 +140,12 @@ span.psw {
 </head>
 <body>
 
-<h1>Welcome User!</h1>
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+<div style=" position: absolute; left: 50%; top: 50%;" >
+
+    <h1>Welcome User!</h1>
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+
+</div>
 
 <div id="id01" class="modal">
 
