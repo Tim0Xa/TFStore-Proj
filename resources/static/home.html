@@ -19,26 +19,32 @@
 </head>
 <body>
 
-<!--<h2> Yeah, you knew it!</h2>-->
-<!--<h3> you'll sepent most of the time here...</h3>-->
-
-<div id="address-line"> address line </div>
+<div>
+    <input id="address-line" type="text" value="C:/Users/tim0f/Downloads/" >
+</div>
+<!--<div id="address-line"> address line </div>-->
 <div id="content" style="height:70vh; overflow-y: scroll;"> content <br>
-<!--<p>the line 1</p>-->
-<!--<p>the line 2</p>-->
-<!--<p>the line 3</p>-->
-<!--<p>the line 4</p>-->
-<!--<p>the line 5</p>-->
-    <!--<button onclick="myFun()" >Push me</button>-->
 
     <script>
-        $.getJSON( origin + "/rest", function(TheJson){
-        <!--$.getJSON("http://localhost:8080/rest", function(TheJson){-->
-        <!--$.getJSON("http:/rest", function(TheJson){-->
-            $.each(TheJson,function(index,value){
-                $('#content').append('<p>' + value + '</p>');
+        $(document).ready(function(){
+            $("#address-line").change(function(){
+                console.log("address changed ", $("#address-line").val() )
+                <!--alert("The text has been changed.");-->
+                $.post( origin + "/rest" , $('#address-line').val(),
+                function(data){
+                    console.log(data);
+                    $.each(data,function(index,value){
+                        $('#content').append('<p>' + value + '</p>');
+                    });
+                });
             });
         });
+
+        <!--$.getJSON( origin + "/rest", function(TheJson){-->
+            <!--$.each(TheJson,function(index,value){-->
+                <!--$('#content').append('<p>' + value + '</p>');-->
+            <!--});-->
+        <!--});-->
     </script>
 
 </div>
